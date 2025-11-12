@@ -1,0 +1,114 @@
+/* style.css - Dark, centered layout and modern form styles for Mini Project */
+
+:root {
+  --bg: #0b1220; /* very dark blue-gray */
+  --panel: #0f1724; /* slightly lighter panel */
+  --text: #e6eef6; /* light text */
+  --muted: #9aa6b2; /* muted text */
+  --accent: #4f9fff; /* accent/button color */
+  --accent-2: #3b82f6;
+  --radius: 10px;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  background: linear-gradient(180deg, var(--bg) 0%, #071018 100%);
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+/* Centered container for content */
+.container {
+  width: 100%;
+  max-width: 640px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  border: 1px solid rgba(255,255,255,0.03);
+  padding: 2rem;
+  border-radius: var(--radius);
+  box-shadow: 0 8px 30px rgba(2,6,23,0.6);
+}
+
+h1 {
+  margin: 0 0 1rem 0;
+  font-size: 1.6rem;
+  color: var(--text);
+}
+
+/* Form layout */
+#item-form {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+#item-input {
+  flex: 1 1 auto;
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.04);
+  color: var(--text);
+  border-radius: 8px;
+  outline: none;
+  transition: box-shadow 150ms ease, border-color 150ms ease;
+}
+
+#item-input::placeholder { color: var(--muted); }
+
+#item-input:focus {
+  border-color: rgba(79,159,255,0.6);
+  box-shadow: 0 4px 18px rgba(63,127,255,0.08);
+}
+
+button[type="submit"] {
+  background: linear-gradient(180deg, var(--accent) 0%, var(--accent-2) 100%);
+  color: white;
+  border: none;
+  padding: 0.72rem 1rem;
+  font-size: 0.95rem;
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: 0 6px 16px rgba(59,130,246,0.18);
+  transition: transform 120ms ease, box-shadow 120ms ease, opacity 120ms ease;
+}
+
+button[type="submit"]:hover { transform: translateY(-2px); }
+button[type="submit"]:active { transform: translateY(0); }
+
+/* Item list */
+#item-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+#item-list li {
+  padding: 0.6rem 0.75rem;
+  background: rgba(255,255,255,0.02);
+  border: 1px solid rgba(255,255,255,0.02);
+  border-radius: 8px;
+  color: var(--text);
+}
+
+/* Small responsive tweaks */
+@media (max-width: 420px) {
+  .container { padding: 1rem; }
+  #item-form { flex-direction: column; align-items: stretch; }
+  button[type="submit"] { width: 100%; }
+}
